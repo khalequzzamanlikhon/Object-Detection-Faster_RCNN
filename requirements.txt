@@ -2,4 +2,4 @@ torch==2.1.2
 torchvision==0.16.2
 opencv-python-headless
 numpy
-PIL
+PIL=9.5.0
