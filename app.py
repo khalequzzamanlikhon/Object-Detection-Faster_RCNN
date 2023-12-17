@@ -61,6 +61,7 @@ if selected_option != "Select an option":
     image = cv2.imread(image_path)
 
     if image is not None:
+
         # Convert OpenCV image to PIL image
         pil_image = Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
         st.image(pil_image, caption=f"Selected Image: {selected_option}", use_column_width=True)
@@ -91,7 +92,9 @@ if selected_option != "Select an option":
                                   (0, 220, 0), 2)
                     cv2.putText(image, classes[labels[i]], (int(box[0]), int(box[1]) - 5),
                                 cv2.FONT_HERSHEY_COMPLEX, 0.7, (220, 0, 0), 1, cv2.LINE_AA)
-        st.image(image, caption="Object Detection Result", use_column_width=True)
+                    
+        rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        st.image(rgb_image, caption="Object Detection Result", use_column_width=True)
 
     else:
         st.write(f"Error: Unable to load the selected image: {selected_option}")
@@ -135,7 +138,8 @@ else:
                                     cv2.FONT_HERSHEY_COMPLEX, 0.7, (220, 0, 0), 1, cv2.LINE_AA)
 
             # Display the annotated image
-            st.image(image, caption="Object Detection Result", use_column_width=True)
+            rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            st.image(rgb_image, caption="Object Detection Result", use_column_width=True)
         else:
             st.text("Error loading image. Please select image with format .jpg or .jpeg or .png")
 
@@ -144,11 +148,11 @@ else:
 
 
 # checking the version of the libraries
-print(np.__version__)
-print(torch.__version__)
-print(torchvision.__version__)
-print(cv2.__version__)
-print(cv2.getBuildInformation())
+# print(np.__version__)
+# print(torch.__version__)
+# print(torchvision.__version__)
+# print(cv2.__version__)
+# print(cv2.getBuildInformation())
 
 
 
