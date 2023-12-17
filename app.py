@@ -17,7 +17,7 @@ classes = {1: 'aeroplane', 2: 'bicycle', 3: 'bird', 4: 'boat', 5: 'bottle', 6: '
            10: 'cow', 11: 'diningtable', 12: 'dog', 13: 'horse', 14: 'motorbike', 15: 'person', 16: 'pottedplant',
            17: 'sheep', 18: 'sofa', 19: 'train', 20: 'tvmonitor'}
 
-# load a model; pre-trained on COCO
+# load a model, pre-trained on COCO
 model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=False, pretrained_backbone=False)
 
 WEIGHTS_FILE = "faster_rcnn_state.pth"
@@ -78,7 +78,7 @@ if selected_option != "Select an option":
             scores = detection['scores'].cpu().numpy()
             labels = detection['labels'].cpu().numpy()
 
-            detection_threshold = 0.6  # Adjust as needed
+            detection_threshold = 0.6 
 
             for i, box in enumerate(boxes):
                 if scores[i] >= detection_threshold:
@@ -120,7 +120,7 @@ else:
                 scores = detection['scores'].cpu().numpy()
                 labels = detection['labels'].cpu().numpy()
 
-                detection_threshold = 0.6  # Adjust as needed
+                detection_threshold = 0.6 
 
                 for i, box in enumerate(boxes):
                     if scores[i] >= detection_threshold:
