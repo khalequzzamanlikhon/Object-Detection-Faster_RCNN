@@ -1,3 +1,6 @@
+import os
+os.environ['PYOPENGL_PLATFORM'] = 'osmesa'
+
 import warnings
 
 # Suppress torchvision warnings
@@ -144,6 +147,7 @@ else:
 print(torch.__version__)
 print(torchvision.__version__)
 print(cv2.__version__)
+print(cv2.getBuildInformation())
 
 
 
